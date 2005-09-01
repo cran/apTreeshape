@@ -68,7 +68,10 @@ function (tree, class="phylo", quiet=FALSE, model=NULL, p=0.3) {
 				}
 				text <- tmp
 				
-				phy=read.tree(text=text)
+				phy=read.tree2(text=text)
+				if (is.null(phy)) {
+					return(NULL)
+				}
 				if (class=="treeshape") {
 					tmp=as.treeshape.phylo(phy, model, p)
 					if (identical(tmp, NULL)==FALSE) {

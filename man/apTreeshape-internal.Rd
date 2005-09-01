@@ -8,6 +8,7 @@
 \alias{ryule}
 \alias{treebalance}
 \alias{treebase}
+\alias{read.tree2}
 
 
 \title{Internal apTreeshape Functions}
