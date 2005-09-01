@@ -1,12 +1,15 @@
 "rtreeshape" <-
 function (n, tip.number, p=0.3, model="", FUN="") {
 
+	if (n==0) {
+		return(NULL)
+	}
+
 "rtreeshape2" <-
 function(tip.number, FUN){
 	
-	if (class(tip.number)!='numeric') {
-		stop("invalid arguments")
-	}
+	
+
 		
 	if (tip.number<2 | tip.number!=floor(tip.number)) {
 		stop("tip.number must be an integer greater than 2")
@@ -57,15 +60,15 @@ Qaldous<-function(n,i) {
 		current=1
 		for (i in 1:length(tip.number)) {
 			tmp=rtreeshape(n, tip.number[i], p, model, FUN)
-			if (n==1) {
-				res[[current]]=tmp
-				current=current+1
-			} else {
+			#if (n==1) {
+			#	res[[current]]=tmp
+			#	current=current+1
+			#} else {
 				for (j in 1:n) {
 					res[[current]]=tmp[[j]]
 					current=current+1
 				}
-			}
+			#}
 		}
 		return(res)
 	} else {
@@ -82,9 +85,9 @@ Qaldous<-function(n,i) {
 		if (identical(FUN,"")==FALSE & model!="") {stop("at most one option")}
 		
 		if (identical(FUN,"")==FALSE) {
-			if (n==1) {
-				return(rtreeshape2(tip.number,FUN))
-			}
+			#if (n==1) {
+			#	return(rtreeshape2(tip.number,FUN))
+			#}
 			trees=list()
 			for (i in 1:n) {
 				tree<-rtreeshape2(tip.number,FUN)
@@ -94,9 +97,9 @@ Qaldous<-function(n,i) {
 		}
 		
 		if (model=="pda"){
-			if (n==1) {
-				return(rpda(tip.number))
-			}
+			#if (n==1) {
+			#	return(rpda(tip.number))
+			#}
 			trees<-list()
 			for (i in 1:n) {
 				trees[[i]]<-rpda(tip.number)
@@ -105,20 +108,21 @@ Qaldous<-function(n,i) {
 		}
 		
 		if (model=="yule"){
-			if (n==1) {
-				return(rtreeshape2(tip.number, Qyule))
-			}
+			#if (n==1) {
+			#	return(rtreeshape2(tip.number, Qyule))
+			#}
 			trees=list()
 			for (i in 1:n) {
-				trees[[i]]<-rtreeshape2(tip.number, Qyule)
+				#trees[[i]]<-rtreeshape2(tip.number, Qyule)
+				trees[[i]]<-ryule(tip.number)
 			}
 			return(trees)
 		}
 
 		if (model=="aldous"){
-			if (n==1) {
-				return(rtreeshape2(tip.number, Qaldous))
-			}
+			#if (n==1) {
+			#	return(rtreeshape2(tip.number, Qaldous))
+			#}
 			trees=list()
 			for (i in 1:n) {
 				trees[[i]]<-rtreeshape2(tip.number, Qaldous)
@@ -128,9 +132,9 @@ Qaldous<-function(n,i) {
 
 
 		if (model=="biased"){
-			if (n==1) {
-				return(rbiased(tip.number=tip.number, p=p))
-			}
+			#if (n==1) {
+			#	return(rbiased(tip.number=tip.number, p=p))
+			#}
 			trees<-list()
 			for (i in 1:n) {
 				trees[[i]]<-rbiased(tip.number=tip.number, p=p)

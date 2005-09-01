@@ -34,7 +34,8 @@ The Aldous' Branching (AB) model is defined by the following symmetric split dis
 }
 
 \value{
-A list of objects of class \code{"treeshape"} if \code{n}>1 or a single tree of class \code{"treeshape"} if \code{n}=1.
+A list of objects of class \code{"treeshape"} 
+NULL if \code{n}=0
 }
 
 \references{
@@ -55,15 +56,15 @@ Olivier François <\email{olivier.francois@imag.fr}>
 \examples{
 
 ## Summary of a PDA tree with 100 tips:
-summary(rtreeshape(n=1, tip.number=100, model="pda"))
+summary(rtreeshape(n=1, tip.number=100, model="pda")[[1]])
 ## Summary of a Yule tree with 100 tips:
-summary(rtreeshape(n=1, tip.number=100, model="yule"))
+summary(rtreeshape(n=1, tip.number=100, model="yule")[[1]])
   
 ## Generate trees with different sizes
 trees=rtreeshape(n=2, tip.number=c(10,20), model="yule")
 length(trees)
 plot(trees[[1]])
-plot(trees[[4]])
+plot(trees[[2]])
   
 ## Histogram of Colless' indices for a list of 1000 PDA trees with 60 tips
 hist(sapply(rtreeshape(1000,60,model="pda"),FUN=colless,norm="pda"),freq=FALSE)
@@ -81,7 +82,7 @@ lines(x,dnorm(x))
 Q <- function(n,i) (i==1)
 
 tree=rtreeshape(n=1, tip.number=10, FUN=Q)
-plot(tree)
+plot(tree[[1]])
 }
 
 \keyword{datagen}

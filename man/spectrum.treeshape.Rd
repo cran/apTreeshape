@@ -36,6 +36,7 @@ Olivier Francois <\email{olivier.francois@imag.fr}>
 
 ## A random Yule tree with 30 tips
 tr<-rtreeshape(n=1,tip.number=30,model="yule")
+tr<-tr[[1]]
 spectre=spectrum.treeshape(tr)
 spectre
   

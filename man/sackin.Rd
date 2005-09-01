@@ -45,6 +45,7 @@ Olivier François <\email{olivier.francois@imag.fr}>
 
 ## Index of Sackin of a PDA tree :
 tpda<-rtreeshape(1,tip.number=70,model="pda")
+tpda<-tpda[[1]]
 sackin(tpda,norm="pda")
   
 ## Histogram of the Sackin's indices for randomly generated Yule trees, 

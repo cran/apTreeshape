@@ -42,8 +42,7 @@ Olivier Francois \email{olivier.francois@imag.fr}
 
 \examples{
 library(quantreg)
-if(!inherits(try(open(url("http://www.google.com")), silent = TRUE),
-   "try-error")) {
+if(!inherits(try(open(url("http://www.google.com")), silent = TRUE), "try-error")) {
 	## The Yule model is fitting to the data better than the PDA
 	aldous.test(dbtrees(db="pandit", tree=61, quiet=TRUE, class="treeshape"), xmin=10)
 	

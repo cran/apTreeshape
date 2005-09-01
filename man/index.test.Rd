@@ -56,6 +56,7 @@ Olivier Francois <\email{olivier.francois@imag.fr}>
 
 ## Test on a randomly generated Yule tree with 30 tips
 a<-rtreeshape(1,30,model="yule")
+a<-a[[1]]
   
 ## Is it more balanced than a Yule tree ?
 colless.test(a,alternative="less",model="yule")

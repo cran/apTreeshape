@@ -47,7 +47,7 @@ Olivier Francois <\email{olivier.francois@imag}>
 
 ## Colless' index for a randomly generated PDA tree (unnormalized value)
 tpda<-rtreeshape(1,tip.number=70,model="pda")
-colless(tpda,norm="pda")
+colless(tpda[[1]],norm="pda")
   
 ## Histogram of Colless' indices for randomly generated Yule trees
 main="Colless' indices for randomly generated Yule trees"

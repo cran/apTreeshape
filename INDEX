@@ -19,7 +19,7 @@ rtreeshape              Generate a list of random binary trees
                         according to a given model
 sackin                  Compute the Sackin's index of a tree
 shape.statistic         Computes the log of the likelihood ratio
-                        (yule/pda) of the given tree
+                        (yule/pda)
 smaller.clade.spectrum
                         Compute the smaller clade spectrum of a tree.
 spectrum.treeshape      Compute the spectrum of a tree

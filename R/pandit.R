@@ -50,11 +50,16 @@ function (tree, class="phylo", type="s", quiet=FALSE, model=NULL, p=0.3) {
 		options(warn=warn)
 		options(show.error.messages=err)
 		
-# 		return(text)
+ 		
 		if (length(text)!=1) {
 			text[1]="("
-			text=text[-length(text)]
-			
+			#text=text[-length(text)]
+			tmp<-""
+			for (i in 1:length(text)) {
+				tmp<-paste(tmp, text[i], sep="")
+			}
+			text <- tmp
+			#return(text)
 			phy=read.tree(text=text)
 			if (class=="treeshape") {
 				tmp=as.treeshape.phylo(phy, model, p)

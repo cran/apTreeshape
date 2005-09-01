@@ -1,12 +1,13 @@
-"ryule" <-
-function(tip.number){
+ryule <-  function(n){
 
-	if (tip.number < 1 | tip.number!=floor(tip.number)){
-		stop("tip.number must be an integer greater than 1")
+	lst<-(-n):(-1)
+
+	Data <- matrix(NA, nrow = n-1, ncol = 2)
+	X <- NULL
+	S <- 0
+	for (i  in 1:(n-1)){
+		Data[i, 1:2] <- xx <- sort(sample(lst, 2,replace= FALSE))
+		lst <- c(lst[ (lst !=xx[1]) & (lst != xx[2]) ],i)
 	}
-
-	res=rtreeshape(n=1, tip.number=tip.number, model="yule")
-	res
-
+	treeshape(Data)
 }
-
