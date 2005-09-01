@@ -1,11 +1,11 @@
 "shape.statistic" <-
-function(tree, norm="null") {
+function(tree, norm=NULL) {
 	
 	if (identical(tree,NULL)) {
 		stop("invalid tree","\n")
 		
 	}	
-	if (norm=="null") {
+	if (identical(norm,NULL)) {
 		return(sum(log(smaller.clade.spectrum(tree)[,1]-1)))	
 	}
 	else if (norm=="pda") {

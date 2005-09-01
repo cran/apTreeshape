@@ -1,8 +1,8 @@
 "rtreeshape" <-
-function (n, tip.number=50, p=0.3, model="", Q="") {
+function (n, tip.number, p=0.3, model="", FUN="") {
 
 "rtreeshape2" <-
-function(tip.number, Q){
+function(tip.number, FUN){
 	
 	if (class(tip.number)!='numeric') {
 		stop("invalid arguments")
@@ -20,7 +20,7 @@ function(tip.number, Q){
 	
 		prob=0:(merge[node,1])
 		for (i in 0:(merge[node,1])) {
-			prob[i+1]=Q((merge[node,1]), prob[i+1])
+			prob[i+1]=FUN((merge[node,1]), prob[i+1])
 		}
 		i=sample(0:(merge[node,1]), 1, prob=prob)
 		
@@ -43,6 +43,11 @@ Qyule<-function(n,i) {
 	else {1}
 }
 	
+Qaldous<-function(n,i) {
+	if (i==0 | i==n) {0}
+	else {1/(i*(n-i))}
+}
+
 	if (class(tip.number)=='list') {
 		tip.number=unlist(tip.number)
 	}
@@ -51,7 +56,7 @@ Qyule<-function(n,i) {
 		res=list()
 		current=1
 		for (i in 1:length(tip.number)) {
-			tmp=rtreeshape(n, tip.number[i], p, model, Q)
+			tmp=rtreeshape(n, tip.number[i], p, model, FUN)
 			if (n==1) {
 				res[[current]]=tmp
 				current=current+1
@@ -73,16 +78,16 @@ Qyule<-function(n,i) {
 			stop("tip.number must be a positive integer")
 		}
 	
-		if (identical(Q,"")==TRUE & model=="") {stop("at least one option")}
-		if (identical(Q,"")==FALSE & model!="") {stop("at most one option")}
+		if (identical(FUN,"")==TRUE & model=="") {stop("at least one option")}
+		if (identical(FUN,"")==FALSE & model!="") {stop("at most one option")}
 		
-		if (identical(Q,"")==FALSE) {
+		if (identical(FUN,"")==FALSE) {
 			if (n==1) {
-				return(rtreeshape2(tip.number,Q))
+				return(rtreeshape2(tip.number,FUN))
 			}
 			trees=list()
 			for (i in 1:n) {
-				tree<-rtreeshape2(tip.number,Q)
+				tree<-rtreeshape2(tip.number,FUN)
 				trees[[i]]<-tree
 			}
 			return(trees)
@@ -109,6 +114,19 @@ Qyule<-function(n,i) {
 			}
 			return(trees)
 		}
+
+		if (model=="aldous"){
+			if (n==1) {
+				return(rtreeshape2(tip.number, Qaldous))
+			}
+			trees=list()
+			for (i in 1:n) {
+				trees[[i]]<-rtreeshape2(tip.number, Qaldous)
+			}
+			return(trees)
+		}
+
+
 		if (model=="biased"){
 			if (n==1) {
 				return(rbiased(tip.number=tip.number, p=p))

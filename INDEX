@@ -10,10 +10,9 @@ colless.test            Perform a test on the Yule or PDA hypothesis
                         based on the Colless or the Sackin statistic
 cutreeshape             Cut objects of class "treeshape"
 cytochromc              Phylogenetic trees from the Pandit database
-dbtreeshape             Collect trees from a database.
+dbtrees                 Download trees from internet databases.
 hivtree.treeshape       Phylogenetic Tree of 193 HIV-1 Sequences
-likelihood.test         Test the Yule vs PDA null hypothesis on tree
-                        data.
+likelihood.test         Test the Yule model vs PDA (uniform) model.
 plot.treeshape          Plot phylogenetic treeshapes.
 primates                Phylogenetic trees from the TreeBASE database
 rtreeshape              Generate a list of random binary trees

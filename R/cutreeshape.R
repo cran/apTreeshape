@@ -13,21 +13,17 @@ bottom.cut <- function (tree, node) {
 	lines=node
 	
 	while(identical(lines, numeric(0)) == FALSE){
-# 		cat("lines: ", lines, "\n")
 		merge[current.line,]=tree$merge[lines[1],]
 		if (merge[current.line,1]>0) {
-# 			cat("ici\n")
 			lines=c(lines, merge[current.line,1])
 			merge[current.line,1]=current.node
 			current.node=current.node-1
 		}
 		if (merge[current.line,2]>0) {
-# 			cat("la\n")
 			lines=c(lines, merge[current.line,2])
 			merge[current.line,2]=current.node
 			current.node=current.node-1
 		}
-# 		cat("merge:", merge, "\n")
 		lines=lines[-1]
 		current.line=current.line-1
 	}
@@ -72,14 +68,10 @@ top.cut <- function(tree, node) {
 	if (class(tree)!='treeshape') {
 		stop("invalid arguments1")
 	}
-	if (class(node)!='numeric') {
-		stop("invalid arguments2")
-	}
 	if (node!=floor(node) | node < 0){
 		stop("node must be a positive integer")
 	}
 	
-
 	if (type=="top"){
 		return(top.cut(tree, node))
 	}

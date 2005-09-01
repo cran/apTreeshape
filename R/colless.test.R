@@ -12,12 +12,12 @@ function(tree,model="yule",alternative="less",n.mc=500) {
 	
 	tip.number.mc<-nrow(tree$merge)+1
 	
+	cat("Computing Monte Carlo estimates...")
 	trees.mc<-rtreeshape(n=n.mc,tip.number=tip.number.mc,p=0.3,model=model)
-	
 	lind.mc<-sapply(trees.mc,FUN=colless,norm=model)
-	
 	res<-ecdf(lind.mc) 
-	
+	cat("\n\n")	
+
 	stat<-colless(tree,norm=model)
 	cat("	Test of the ")
 	cat(model)

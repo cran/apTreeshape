@@ -1,5 +1,5 @@
-"dbtreeshape" <-
-function(db, tree, class="treeshape", type="s", quiet=FALSE, model=NULL, p=0.3) {
+"dbtrees" <-
+function(db, tree, class="phylo", type="s", quiet=FALSE, model=NULL, p=0.3) {
 	
 	if (db=="pandit") {
 		return(pandit(tree, class, type, quiet, model, p))

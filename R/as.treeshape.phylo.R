@@ -24,7 +24,8 @@ function (x, model=NULL, p, ...) {
 				if (model=="pda") {tmp=rpda(bin[i,2])}
 				if (model=="yule") {tmp=ryule(bin[i,2])}
 				if (model=="biased") {tmp=rbiased(bin[i,2],p)}
-				
+				if (model=="aldous") {tmp=raldous(bin[i,2])}
+
 				tmp=as.phylo(tmp)
 				
 				for (j in 1:length(tmp$edge)) {
@@ -76,7 +77,7 @@ function (x, model=NULL, p, ...) {
 # 	res <- list(merge=nodes, names=phy$tip.label)
 # 	class(res)<-'treeshape'
 	res=treeshape(merge, phy$tip.label)
-	if (randomize){class(res)=c('treeshape', 'randomized-tree')}
+	if (randomize){class(res)=c('treeshape', 'randomized.treeshape')}
 	
 	res
 }

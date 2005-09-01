@@ -1,10 +1,11 @@
 "likelihood.test" <-
 function(tree,model="yule",alternative="two.sided") {
 	
-	if (class(tree)!='treeshape') {
+	if (class(tree)[[1]]!='treeshape') {
 		stop("invalid arguments")
 	}
-	#numer of internal nodes
+
+	#number of internal nodes
 	n<-nrow(tree$merge)
 	if (n<4) {
 		stop("This test cannot be computed for trees with less than 4 leaves (negative variance)")

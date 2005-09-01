@@ -4,7 +4,7 @@
 \title{ Cut objects of class "treeshape" }
 
 \description{
-Prunes or cuts an object of class \code{"treeshape"} from a specifized internal node, either by specifying a top or bottom direction. This function returns the top part or the bottom part of a tree. The tree is cut from the root to a given node, or from a given node to the tips.
+Prunes or cuts an object of class \code{"treeshape"} from a specificed internal node, either by specifying a top or bottom direction. This function returns either the top part or the bottom part of a tree. 
 }
 
 \usage{
@@ -13,13 +13,13 @@ cutreeshape(tree, node, type)
 
 \arguments{
 \item{tree}{An object of class \code{"treeshape"}.}
-\item{node}{An integer representing the node in which the tree will be cut. \code{node} should be in the range \eqn{1, \ldots, treesize-1}{1:(treesize-1)}.}
+\item{node}{An integer representing the node at which the tree will be pruned or cut. \code{node} should be in the range \eqn{1, \ldots, treesize-1}{1:(treesize-1)}.}
 \item{type}{A character string equals to either \code{"top"} or \code{"bottom"}.}
 }
 
 \details{
 
-If the \code{type} specified is "top", the tree is pruned from the height of \code{node}. The resulting tips correspond to the ancestral branches present at the same time as the given node. New tip labels are assigned to the tips.\cr
+If the \code{type} argument is "top", the tree is pruned from \code{node}. The resulting tips correspond to the ancestral branches present at the same height as the given node. New tip labels are assigned to the tips.\cr
   
 If the \code{type} specified is "bottom", the subtree under \code{node} is returned. The tips are not renamed (they keep their former names) and the specified \code{node} is the root of the new tree.
   

@@ -12,12 +12,12 @@ function(tree,model="yule",alternative="less",n.mc=500) {
 	
 	tip.number.mc<-nrow(tree$merge)+1
 	
+	cat("Computing Monte Carlo estimates...")
 	trees.mc<-rtreeshape(n=n.mc,tip.number=tip.number.mc,model=model)
-	
 	lind.mc<-sapply(trees.mc,FUN=sackin,norm=NULL)
-	
 	res<-ecdf(lind.mc) 
-	
+	cat("\n\n")
+
 	m<-mean(lind.mc)
 	#resbis<-quantile(lind.mc,probs=seq(0,1,length=101))
 	

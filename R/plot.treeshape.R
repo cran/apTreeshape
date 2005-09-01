@@ -5,7 +5,23 @@ plotone <- function(tree, ...){
 	n <- nrow(tree$merge)+400
 	hc <-  hclust(d = dist(runif(n), method = "euclidean"), method = "ward")
 	hc$merge <- tree$merge
+	
 	hc$height <- 1:nrow(tree$merge)
+	
+	descendant <- smaller.clade.spectrum(tree)[,1]
+	current <- 1
+	for (i in 2:(nrow(tree$merge)+1)) {
+		if (sum(descendant==i)!=0) {
+			descendant[descendant==i] <- current
+			current <- current+1
+		}
+	}
+	for (i in 1:length(descendant)) {
+		hc$height[length(descendant)-i+1]=descendant[i]
+	}
+
+	#return(hc$height)
+	
 	hc$labels <- tree$names
 	hc <- as.dendrogram(hc)
 	

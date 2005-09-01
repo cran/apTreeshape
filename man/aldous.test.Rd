@@ -4,7 +4,7 @@
 \title{ Visualizing balance via scatter diagrams }
 
 \description{
-A graphical test to determine if a tree fits the Yule, PDA and beta-splitting models.
+A graphical test to decide if tree data fit the Yule or the PDA  models.
 }
 
 \usage{
@@ -13,14 +13,14 @@ aldous.test(tree, xmin=20, \dots)
 
 \arguments{
 \item{tree}{ An object of class \code{"treeshape"}.}
-\item{xmin}{ An object of class \code{"numeric"} that defines the range of the x-axis. The minimal size of a parent clade that is displayed in the graphical representation (default: \code{xmin=20}).}
+\item{xmin}{ An object of class \code{"numeric"} that defines the range of the x-axis. The minimal parent clade size displayed in the graphical representation (default: \code{xmin=20}).}
 \item{\dots}{ further arguments to be passed to \code{plot()}.}
 }
 
 \details{
 A binary tree contains a set of splits \deqn{(m,i) = (size~of~parent~clade, size~of~smaller~daughter~clade)}{(m,i)=(size of parent clade, size of smaller daughter clade)} which can be plotted as a scatter diagram. Aldous' proposal for studying tree balance is that, given a large phylogenetic tree, one should estimate the median size of the smaller daughter clade as a function of the parent clade and use this function as a descriptor of balance or imbalance of the tree. It is convenient to make a log-log plot and to ignore small parent clades. The scatter diagram shows lines giving the approximate median values of the size of smaller daughter clade predicted by the beta-splitting model for two values of beta, the value for the Yule \eqn{(\beta=0)}{(beta=0)} and PDA (\eqn{\beta=-1.5}{beta=-1.5}) models. In other words, if the null model were true, then the scatter diagram for a typical tree would have about half the points above the line and half below the line, throughout the range.\cr
   
-The red line represents the median regression estimated from the tree data.
+The green line represents the median regression estimated from the tree data.
 }
 
 \value{
@@ -44,16 +44,18 @@ Olivier Francois \email{olivier.francois@imag.fr}
 library(quantreg)
 if(!inherits(try(open(url("http://www.google.com")), silent = TRUE),
    "try-error")) {
-	## A tree scanned from the Pandit database:
-	## The diagram exhibits a better fit to the Yule model than the PDA model.
-	aldous.test(pandit(61, quiet=TRUE), xmin=10)
-	## A tree that seems to fit the PDA model:
-	aldous.test(pandit(102, quiet=TRUE))
+	## The Yule model is fitting to the data better than the PDA
+	aldous.test(dbtrees(db="pandit", tree=61, quiet=TRUE, class="treeshape"), xmin=10)
+	
+	## For this tree, the PDA model provides a better fit than the Yule model
+	aldous.test(dbtrees(db="pandit", tree=120, quiet=TRUE, class="treeshape"))
+	
+	## Test with a huge balanced tree:
+	aldous.test(rbiased(2000, p=.5))
+
 }
 
   
-## Test with a huge balanced tree:
-aldous.test(rbiased(2000, p=.5))
 }
 
 \keyword{htest}

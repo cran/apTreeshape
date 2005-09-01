@@ -33,10 +33,11 @@ Olivier Francois <\email{olivier.francois@imag.fr}>
 \code{\link{as.treeshape}}\cr
 }
 \examples{
-library(ape)
 
 data(primates)
 plot(primates)
+
+library(ape)
   
 primates.phylo=as.phylo(primates)
 plot(primates.phylo)

@@ -16,10 +16,10 @@ smaller.clade.spectrum(tree)
 }
 
 \value{
-A n*2 matrix (where n is the number of internal node of the tree) containing the size of the clades and the smaller clades.
+A n*2 matrix (where n is the number of internal nodes of the tree) containing the size of the clades and the smaller clades.
 \code{smaller.clade.spectrum(tree)[1,1]} contains the number of tips of the tree.
 \code{smaller.clade.spectrum(tree)[i,1]} contains the number of tips of the subtree whose root is the node number \code{n-i+1}.
-\code{smaller.clade.spectrum(tree)[1,2]} contains the number of tips of the smaller clade of the root.  
+\code{smaller.clade.spectrum(tree)[1,2]} contains the number of tips of the smaller daughter clade at the root.  
 }
 
 \author{ 
@@ -35,11 +35,21 @@ Olivier Francois <\email{olivier.franois@imag.fr}>
 
 \examples{
 
-## A random biased tree with 50 tips
-tr<-rtreeshape(n=1,tip.number=50,model="biased")
-clades=spectrum.treeshape(tr)
-clades
-plot(clades)
-}
+# computes the log-likelihood for Aldous' model
+shape.new <- function(tree){
+h <- function(n){sum(1/(1:n))}
+mat <- smaller.clade.spectrum(tree)
+parent <- mat[,1]
+daughter <- mat[,2]
+nh.n <- sapply(parent, FUN = function(x){x*h(x-1)} )
+s <- sum(log(daughter/parent) + log(1 - daughter/parent) + log(nh.n))
+return(s)}
+ 
+# distribution over 200 replicates
+
+tr <- rtreeshape(200, 100, FUN =
+function(n,i){if((i>0)&(i<n))return(1/i/(n-i)) else return(0)})
+res <- sapply( tr, FUN = shape.new)  
+hist(res)}
 
 \keyword{univar}

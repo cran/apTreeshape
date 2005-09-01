@@ -1,7 +1,13 @@
 \name{apTreeshape-internal}
 \alias{as.treeshape.treebalance}
 \alias{is.binary.phylo}
+\alias{pandit}
+\alias{raldous}
+\alias{rbiased}
+\alias{rpda}
+\alias{ryule}
 \alias{treebalance}
+\alias{treebase}
 
 
 \title{Internal apTreeshape Functions}

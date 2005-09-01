@@ -4,7 +4,7 @@
 \title{ Compute the number of children of a randomly chosen node }
 
 \description{
-\code{cladesize} takes a random internal node of a tree and computes its number of descendents (clade size).
+\code{cladesize} takes a random internal node in a tree, and computes its number of descendants (clade size).
 }
 \usage{
 cladesize(tree)

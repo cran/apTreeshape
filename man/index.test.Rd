@@ -18,16 +18,16 @@ sackin.test(tree, model = "yule", alternative = "less", n.mc = 500)
 \item{tree}{ An object of class \code{"treeshape"}.  }
 \item{model}{ The null hypothesis of the test. One of  \code{"yule"} (default) or \code{"pda"}. }
 \item{alternative}{ A character string specifying the alternative hypothesis of the test. One of \code{"less"} (default) or \code{"greater"}. }
-\item{n.mc}{ An integer representing the number of random trees to be generated and required to estimate a p-value for the test from a Monte Carlo method. }
+\item{n.mc}{ An integer representing the number of random trees to be generated and required to compute a p-value from a Monte Carlo method. }
 }
 
 \details{
-A test on tree data that rejects either the Yule or the PDA models.
-This test is based on a Monte Carlo estimate of the p-value. Replicates are generated under the Yule or PDA models, and their Colless' (Sackin's) indices are computed. The empirical distribution function of these statistics is then computed thanks to the "ecdf" R function. The p-value is then deduced from its quantiles. The less balanced the tree is and the larger its Colless's (Sackin's) index. The alternative "less" should be used to test whether the tree is more balanced (less unbalanced) than predicted by the null model. The alternative "greater" should be used to test whether the tree is more unbalanced than predicted by the null model. The computation of the p-value may not be instantaneous depending on the number of replicates \code{n.mc} used during the MC simulation and the size of the trees.
+A test on tree data that either rejects the Yule or the PDA models.
+This test is based on a Monte Carlo estimate of the p-value. Replicates are generated under the Yule or PDA models, and their Colless' (Sackin's) indices are computed. The empirical distribution function of these statistics is then computed thanks to the "ecdf" R function. The p-value is then deduced from its quantiles. The less balanced the tree is and the larger its Colless's (Sackin's) index. The alternative "less" should be used to test whether the tree is more balanced (less unbalanced) than predicted by the null model. The alternative "greater" should be used to test whether the tree is more unbalanced than predicted by the null model. The computation of p-values may take some  time depending on the number of replicates |n.mc| and the size of the simulated tree.
 }
 
 \value{
-\item{model}{the chosen model for the null hypothesis.}
+\item{model}{the null model.}
 \item{statistic}{the test statistic.}
 \item{p.value}{the p-value of the test.}
 \item{alternative}{the alternative hypothesis of the test.}

@@ -3,28 +3,88 @@ if(dev.cur() <= 1) get(getOption("device"))()
 opar <- par(ask = interactive() &&
             (.Device %in% c("X11", "GTK", "gnome", "windows","quartz")))
 
-##randomly generated Yule tree with 100 leaves and summary
-tree1<-ryule(100)
-summary(tree1)
 
-##randomly generated PDA tree with 100 leaves and summary
-tree2<-rpda(100)
-summary(tree2)
+## universal tree - test
 
-##computation of the colless index of 1000 randomly generated PDA trees with 50 leaves. The colless index is normalized. The histogram is plotted.
-main = "Colless' indices for randomly generated Yule trees"
-xlab = "Colless' indices"
-hist(sapply(rtreeshape(500,50,model="yule"),FUN=colless,norm="yule"),freq=FALSE,main=main,xlab=xlab)
+data(universal.treeshape)
+tree <- universal.treeshape
+plot(tree)
+summary(tree)
 
-##A graphical test on a tree retrieved within the Pandit database.
-tree3<-pandit(117)
-summary(tree3)
-aldous.test(tree3)
+likelihood.test(tree,  model = "yule", alternative = "two.sided")
+likelihood.test(tree,  model = "pda", alternative = "two.sided")
+colless.test(tree, model = "yule", alternative = "greater")
+
+# aldous test
+
+#aldous.test(tree)
+aldous.test(rtreeshape(n=1, tip.number=2000, model="yule"))
+
+
+#resolution de polytomies par simulation
+
+phy=dbtrees(db="treebase", tree=741, class="phylo")
+plot(phy)
+tree=dbtrees(db="treebase", tree=741, class="treeshape")
+tree=dbtrees(db="treebase", tree=741, class="treeshape", model="yule")
+plot(tree)
+
  
-##the HIV tree
-data(hivtree.treeshape)
-summary(hivtree.treeshape)
-##aldous graphical test of this tree
-aldous.test(hivtree.treeshape)
-##cut of the top part of the HIV tree and plot
-plot(hivtree.treeshape,cutreeshape(hivtree.treeshape,n=158,"top"))
+### familles d'oiseaux
+
+data(bird.families)
+tree.b <- bird.families
+tree.birds <- as.treeshape(tree.b, model ="yule")
+plot(tree.birds)
+print(tree.birds$names)
+class(tree.birds) <- "treeshape"
+likelihood.test(tree.birds, alternative="two.sided")
+likelihood.test(tree.birds, model ="pda", alternative="two.sided")
+
+### test du modele d'Aldous
+## Exemple
+
+plot(rtreeshape(n=1, tip.number=40, model="aldous"))
+
+## simulation
+
+trees.ab <- rtreeshape(n=500, tip.number=137, model="aldous")
+
+shape.lst <- sapply(trees.ab, FUN = shape.statistic)
+quantile(shape.lst, prob = c(0.025, 0.975))
+shape.statistic(tree.birds)
+
+## scan pandit
+
+trees <- dbtrees(db="pandit", tree=200:400, class="treeshape")
+#on ne garde que les arbre qui ont plus de 20 feuilles
+
+tr <- trees[sapply(trees, FUN = function(x){length(x$merge)>38} )]
+
+#on regarde les tailles
+sapply(tr, FUN = function(x){length(x$merge)/2} )
+
+
+# Pda N(0,1) ?
+
+hist( sapply( tr, FUN = shape.statistic, norm="pda"))
+qqnorm(sapply( tr, FUN = shape.statistic, norm="pda"))
+
+# un arbre particulier et des sous arbres de taille 25
+tree <- trees[[85]]
+tr.25 <- NULL; for (i in 1:200) tr.25[[i]] <- tipsubtree(tree, sample(1:256, 25), numeric = TRUE )
+hist( sapply( tr.25, FUN = shape.statistic, norm="pda"))
+
+# simulation
+summary(tree)
+tr.s <- rtreeshape(500, 256, FUN = function(n,i){if ((i>0)&(i<n)) 1/i/(n-i) else 0})
+quantile( sapply(tr.s, FUN = colless), prob = c(0.025, 0.5, 0.975))
+
+hist( sapply( tr.25, FUN = shape.statistic, norm="pda"))
+tr.25s <- rtreeshape(200, 25, FUN = function(n,i){if ((i>0)&(i<n)) 1/i/(n-i) else 0})
+x11(); hist( sapply( tr.25s, FUN = shape.statistic, norm="pda"))
+
+
+#on ne garde que les arbre qui ont 50-100 feuilles
+tr <- trees[sapply(trees, FUN = function(x){(length(x$merge)>97)& (length(x$merge)<199)} )]
+ hist( sapply( tr, FUN = shape.statistic, norm="pda"))
