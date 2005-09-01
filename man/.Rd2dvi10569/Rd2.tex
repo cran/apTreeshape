@@ -1,0 +1,920 @@
+\nonstopmode{}
+\documentclass[a4paper]{book}
+\usepackage[times,hyper]{Rd}
+\usepackage{makeidx}
+\makeindex{}
+\begin{document}
+\chapter*{}
+\begin{center}
+{\textbf{\huge \R{} documentation}} \par\bigskip{{\Large of \file{aldous.test.Rd} etc.}}
+\par\bigskip{\large \today}
+\end{center}
+\Rdcontents{\R{} topics documented:}
+\HeaderA{aldous.test}{Visualizing balance via scatter diagrams}{aldous.test}
+\keyword{htest}{aldous.test}
+\begin{Description}\relax
+A graphical test to determine if a tree fits the Yule, PDA and beta-splitting models.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  aldous.test(tree, xmin=20, ...)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}.
+\item[\code{xmin}] An object of class \code{"numeric"} that defines the range of the x-axis. The minimal size of a parent clade that is displayed in the graphical representation (default: \code{xmin=20}).
+\item[\code{...}] further arguments to be passed to \code{plot()}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+A binary tree contains a set of splits (m,i)=(size of parent clade, size of smaller daughter clade) which can be plotted as a scatter diagram. Aldous' proposal for studying tree balance is that, given a large phylogenetic tree, one should estimate the median size of the smaller daughter clade as a function of the parent clade and use this function as a descriptor of balance or imbalance of the tree. It is convenient to make a log-log plot and to ignore small parent clades. The scatter diagram shows lines giving the approximate median values of the size of smaller daughter clade predicted by the beta-splitting model for two values of beta, the value for the Yule (beta=0) and PDA (beta=-1.5) models. In other words, if the null model were true, then the scatter diagram for a typical tree would have about half the points above the line and half below the line, throughout the range.\\
+
+The red line the median regression estimated from the tree data.
+\end{Details}
+\begin{Value}
+The function provides a graphical display of results.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Aldous, D. J. (1996) _Probability Distributions on Cladograms._ pp.1-18 of _Random Discrete Structures_ eds D. Aldous and R. Pemantle, IMA Volumes Math. Appl. 76. 
+
+Aldous, D. J. (2001) Stochastic Models and Descriptive Statistics for Phylogenetic Trees, from Yule to Today. _Statistical Science_, *16*, 23-24.
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+  library(quantreg)
+  
+  ## A tree scanned from the Pandit database:
+  ## The diagram exhibits a better fit to the Yule model than the PDA model.
+  aldous.test(pandit(61, quiet=TRUE), xmin=10)
+  ## A tree that seems to fit the PDA model:
+  aldous.test(pandit(102, quiet=TRUE))
+  
+  ## Test with a huge balanced tree:
+  aldous.test(rbiased(2000, p=.5))
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{aldous.test}{Visualizing balance via scatter diagrams}{aldous.test}
+\keyword{htest}{aldous.test}
+\begin{Description}\relax
+A graphical test to determine if a tree fits the Yule, PDA and beta-splitting models.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  aldous.test(tree, xmin=20, ...)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}.
+\item[\code{xmin}] An object of class \code{"numeric"} that defines the range of the x-axis. The minimal size of a parent clade that is displayed in the graphical representation (default: \code{xmin=20}).
+\item[\code{...}] further arguments to be passed to \code{plot()}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+A binary tree contains a set of splits (m,i)=(size of parent clade, size of smaller daughter clade) which can be plotted as a scatter diagram. Aldous' proposal for studying tree balance is that, given a large phylogenetic tree, one should estimate the median size of the smaller daughter clade as a function of the parent clade and use this function as a descriptor of balance or imbalance of the tree. It is convenient to make a log-log plot and to ignore small parent clades. The scatter diagram shows lines giving the approximate median values of the size of smaller daughter clade predicted by the beta-splitting model for two values of beta, the value for the Yule (beta=0) and PDA (beta=-1.5) models. In other words, if the null model were true, then the scatter diagram for a typical tree would have about half the points above the line and half below the line, throughout the range.\\
+
+The red line the median regression estimated from the tree data.
+\end{Details}
+\begin{Value}
+The function provides a graphical display of results.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Aldous, D. J. (1996) _Probability Distributions on Cladograms._ pp.1-18 of _Random Discrete Structures_ eds D. Aldous and R. Pemantle, IMA Volumes Math. Appl. 76. \\
+Aldous, D. J. (2001) Stochastic Models and Descriptive Statistics for Phylogenetic Trees, from Yule to Today. _Statistical Science_, *16*, 23-24. \\
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+  library(quantreg)
+  
+  ## A tree scanned from the Pandit database:
+  ## The diagram exhibits a better fit to the Yule model than the PDA model.
+  aldous.test(pandit(61, quiet=TRUE), xmin=10)
+  ## A tree that seems to fit the PDA model:
+  aldous.test(pandit(102, quiet=TRUE))
+  
+  ## Test with a huge balanced tree:
+  aldous.test(rbiased(2000, p=.5))
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{all.equal.treeshape}{Compare two objects of class treeshape}{all.equal.treeshape}
+\keyword{manip}{all.equal.treeshape}
+\begin{Description}\relax
+This function makes a global comparison of two phylogenetic trees.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  ## S3 method for class 'treeshape':
+  all.equal(target, current, names=TRUE, height=TRUE, ...)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{target}] An object of class \code{"treeshape"}.
+\item[\code{current}] An object of class \code{"treeshape"}.
+\item[\code{names}] An object of class \code{"logical"}, checking if the names of the tips should be tested.
+\item[\code{height}] An object of class \code{"logical"}, checking if the height of the nodes should be tested.
+\item[\code{...}] further arguments passed to or from other methods.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+This function is meant to be an adaptation of the generic function
+\code{all.equal} for the comparison of phylogenetic trees. A phylogenetic tree can have many different representations. Permutations between the left and the right children of a node do not change the corresponding phylogeny, and \code{all.equal.treeshape} returns \code{TRUE} on two permutated trees.
+\end{Details}
+\begin{Value}
+Returns the logical \code{TRUE} if the tree objects are similar up to a permutation of their tips. Otherwise, it returns \code{FALSE}. Heights and labels are important.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{all.equal}{all.equal}} for the generic R function
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+  
+ 
+  ## Trees with permutations 
+  data(carnivora.treeshape)
+  tree=carnivora.treeshape
+  tree$merge[8,]=c(tree$merge[8,2],tree$merge[8,1])
+  all.equal(tree, carnivora.treeshape)
+ 
+  ## Trees with different heights
+  merge=matrix(NA, 3, 2)
+  merge[,1]=c(-3,-1,2); merge[,2]=c(-4,-2,1);tree1=treeshape(merge)
+  merge[,1]=c(-1,-3,1); merge[,2]=c(-2,-4,2);tree2=treeshape(merge)
+  
+  plot(tree1, tree2)
+  all.equal(tree1, tree2)
+  all.equal(tree1, tree2, height=FALSE)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{apTreeshape-internal}{Internal apTreeshape Functions}{apTreeshape.Rdash.internal}
+\aliasA{as.treeshape.treebalance}{apTreeshape-internal}{as.treeshape.treebalance}
+\aliasA{is.binary.phylo}{apTreeshape-internal}{is.binary.phylo}
+\aliasA{maxbeta}{apTreeshape-internal}{maxbeta}
+\aliasA{read.tree}{apTreeshape-internal}{read.tree}
+\aliasA{treebalance}{apTreeshape-internal}{treebalance}
+\keyword{internal}{apTreeshape-internal}
+\begin{Description}\relax
+Internal apTreeshape functions.
+\end{Description}
+\begin{Note}\relax
+These are not to be called by the user (or in some cases are just waiting for proper documentation to be written).
+\end{Note}
+
+\HeaderA{as.phylo.treeshape}{Conversion among tree objects}{as.phylo.treeshape}
+\keyword{manip}{as.phylo.treeshape}
+\begin{Description}\relax
+\code{as.phylo} is a generic function - described in the APE package - which converts an object into a tree of class \code{"phylo"}. This method is an adataption of this generic method to convert object of class \code{"treeshape"} in objects of class \code{"phylo"}.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  ## S3 method for class 'treeshape':
+  as.phylo(x, ...)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] An object of class\code{"treeshape"}.
+\item[\code{...}] further arguments to be passed to or from other methods.
+\end{ldescription}
+\end{Arguments}
+\begin{Value}
+An object of class \code{"phylo"}.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{as.phylo}{as.phylo}}\\
+\code{\LinkA{as.treeshape}{as.treeshape}}\\
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+  library(ape)
+
+  data(primates)
+  plot(primates)
+  
+  primates.phylo=as.phylo(primates)
+  plot(primates.phylo)
+
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{as.treeshape}{Conversion among tree objects}{as.treeshape}
+\methaliasA{as.treeshape.phylo}{as.treeshape}{as.treeshape.phylo}
+\keyword{manip}{as.treeshape}
+\begin{Description}\relax
+\code{as.treeshape} is a generic function which converts an object into a
+tree of class \code{"treeshape"}. There are currently one method for this
+generic for objects of class \code{"phylo"}
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  ## S3 method for class 'phylo':
+  as.treeshape(x, model, p, ...)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] An object to be converted into another class. Currently, it must be an object of class \code{"phylo"}.
+\item[\code{model}] The model to use when the tree to convert is not binary. If \code{NULL} (default), the tree is not converted. One of \code{"biased"}, \code{"pda"} or \code{"yule"} to use this model to resolve polytomies.
+\item[\code{p}] The parameter for the model 'biased'.
+\item[\code{...}] Further arguments to be passed to or from other methods.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+\code{as.treeshape} can convert trees that are not binary. When trying to convert a tree with polytomies, this function may either reject the tree or simulate the tree. The polytomy is replaced by a randomized tree with n tips, where n is the size of the polytomy. The subtree is simulated using the PDA, Yule or biased model.
+\end{Details}
+\begin{Value}
+An object of class \code{"treeshape"} or an object of class \code{"treeshape"} and \code{"randomize-tree"} if the origonal tree was not binary.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{as.phylo.treeshape}{as.phylo.treeshape}}\\
+\code{\LinkA{dbtreeshape}{dbtreeshape}} for examples about polytomy resolutions.
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  library(ape)
+  data(bird.orders)
+  ## Data set from APE
+  plot(bird.orders)
+  
+  ## "treeshape" conversion
+  tree=as.treeshape(bird.orders)
+  plot(tree)
+  summary(tree)
+  
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{cladesize}{Compute the number of children of a randomly chosen node}{cladesize}
+\keyword{univar}{cladesize}
+\begin{Description}\relax
+\code{cladesize} takes a random internal node of a tree and computes its number of descendents (clade size).
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  cladesize(tree)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}. 
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+This function can be used to check whether a tree fits the Yule or the PDA models. Under the Yule model, the probability distribution of the random clade size is equal to P(Kn=k)=2*n/((n-1)*k(k+1)) (for k in[2,n-1]) and P(Kn=n)=1/(n-1) (where n is the number of tips of the tree and Kn is the number of descendents of an internal node of the tree).
+Under the PDA model, the asymptotic distribution (when the number of tips grows to infinity) of the random clade size is equal to P(K=k+1)=choose(2*k,k)/((k+1)*(2^k)^2). \\
+\end{Details}
+\begin{Value}
+An object of class \code{numeric} representing the clade size of a random node of a tree.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}> \\ 
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.fr}> \\
+Oliver François <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Blum, M., Francois, O. and Janson, S. The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance, <\url{http://www-timc.imag.fr/Olivier.Francois/bfj.pdf}>.
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+
+  # Histogram of random clade sizes 
+  main="Random clade sizes for random generated trees"
+  xlabel="clade size"
+  hist(sapply(rtreeshape(100,tip.number=40,model="yule"),FUN=cladesize),freq=FALSE,main=main,xlab=xlabel)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{cladesize}{Compute the number of children of a randomly chosen node}{cladesize}
+\keyword{univar}{cladesize}
+\begin{Description}\relax
+\code{cladesize} takes a random internal node of a tree and computes its number of descendents (clade size).
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  cladesize(tree)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}. 
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+This function can be used to check whether a tree fits the Yule or the PDA models. Under the Yule model, the probability distribution of the random clade size is equal to P(Kn=k)=2*n/((n-1)*k(k+1)) (for k in[2,n-1]) and P(Kn=n)=1/(n-1) (where n is the number of tips of the tree and Kn is the number of descendents of an internal node of the tree).
+Under the PDA model, the asymptotic distribution (when the number of tips grows to infinity) of the random clade size is equal to P(K=k+1)=choose(2*k,k)/((k+1)*(2^k)^2). \\
+\end{Details}
+\begin{Value}
+An object of class \code{numeric} representing the clade size of a random node of a tree.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}> \\ 
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.fr}> \\
+Oliver François <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Blum, M., Francois, O. and Janson, S. The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance, <\url{http://www-timc.imag.fr/Olivier.Francois/bfj.pdf}>
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+
+  # Histogram of random clade sizes 
+  main="Random clade sizes for random generated trees"
+  xlabel="clade size"
+  hist(sapply(rtreeshape(100,tip.number=40,model="yule"),FUN=cladesize),freq=FALSE,main=main,xlab=xlabel)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{colless}{Compute the Colless' shape statistic on tree data}{colless}
+\keyword{univar}{colless}
+\begin{Description}\relax
+\code{colless} computes the Colless' index of a tree and provides standardized values according to the Yule and PDA models.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  colless(tree, norm = NULL)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"} on which the Colless' index is computed.
+\item[\code{norm}] A character string equals to \code{NULL} (default) for no normalization or one of \code{"pda"} or \code{"yule"}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+The Colless' index Ic computes the sum of absolute values |L-R| at each node of the tree where L (resp. R) is the size of the left (resp. right) daughter clade at the node.
+
+The mean and standard deviation of the Colless's statistic Ic have been computed by Blum et al (2005). Under the Yule model the standardized index Iy = (Ic-n*log(n)-n(gamma-1-log(2)))/n converges in distribution (gamma is the Euler constant).The limit distribution is non Gaussian and is characterized as a functional fixed-point equation solution. Under the PDA model, the standardization is different Ipda = Ic/ n^(3/2) and converges in distribution to the Airy distribution (See Flagolet and Louchard (2001)). Standardized indices are useful when one wishes to compare trees with different sizes. The \code{colless} function returns the value of the unnormalized index (default) or one of the standardized statistics (Yule or PDA).
+\end{Details}
+\begin{Value}
+An object of class \code{numeric} which is the Colless' index of the given tree.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag}>
+\end{Author}
+\begin{References}\relax
+Mooers, A. O. and Heard, S. B. (1997), Inferring Evolutionnary Process from Phylogenetic Tree Shape. _The Quarterly Review of Biology_, *72*, 31-54. 
+
+Blum, M., Francois, O. and Janson, S. The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance, <\url{http://www-timc.imag.fr/Olivier.Francois/bfj.pdf}>.
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{sackin}{sackin}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Colless' index for a randomly generated PDA tree (unnormalized value)
+  tpda<-rtreeshape(1,tip.number=70,model="pda")
+  colless(tpda,norm="pda")
+  
+  ## Histogram of Colless' indices for randomly generated Yule trees
+  main="Colless' indices for randomly generated Yule trees"
+  xlab="Colless' indices"
+  hist(sapply(rtreeshape(300,tip.number=50,model="yule"),FUN=colless,norm="yule"),freq=FALSE,main=main,xlab=xlab)
+  
+  ## Change the number of tips
+  hist(sapply(rtreeshape(300,tip.number=100,model="yule"),FUN=colless,norm="yule"),freq=FALSE,main=main,xlab=xlab)
+
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{colless}{Compute the Colless' shape statistic on tree data}{colless}
+\keyword{univar}{colless}
+\begin{Description}\relax
+\code{colless} computes the Colless' index of a tree and provides standardized values according to the Yule and PDA models.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  colless(tree, norm = NULL)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"} on which the Colless' index is computed.
+\item[\code{norm}] A character string equals to \code{NULL} (default) for no normalization or one of \code{"pda"} or \code{"yule"}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+The Colless' index Ic computes the sum of absolute values |L-R| at each node of the tree where L (resp. R) is the size of the left (resp. right) daughter clade at the node.
+
+The mean and standard deviation of the Colless's statistic Ic have been computed by Blum et al (2005). Under the Yule model the standardized index Iy = (Ic-n*log(n)-n(gamma-1-log(2)))/n converges in distribution (gamma is the Euler constant).The limit distribution is non Gaussian and is characterized as a functional fixed-point equation solution. Under the PDA model, the standardization is different Ipda = Ic/ n^(3/2) and converges in distribution to the Airy distribution (See Flagolet and Louchard (2001)). Standardized indices are useful when one wishes to compare trees with different sizes. The \code{colless} function returns the value of the unnormalized index (default) or one of the standardized statistics (Yule or PDA).
+\end{Details}
+\begin{Value}
+An object of class \code{numeric} which is the Colless' index of the given tree.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier Francois <\email{olivier.francois@imag}>
+\end{Author}
+\begin{References}\relax
+Mooers, A. O. and Heard, S. B. (1997), Inferring Evolutionnary Process from Phylogenetic Tree Shape. _The Quarterly Review of Biology_, *72*, 31-54. 
+
+Blum, M., Francois, O. and Janson, S. The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance, <\url{http://www-timc.imag.fr/Olivier.Francois/bfj.pdf}>\\
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{sackin}{sackin}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Colless' index for a randomly generated PDA tree (unnormalized value)
+  tpda<-rtreeshape(1,tip.number=70,model="pda")
+  colless(tpda,norm="pda")
+  
+  ## Histogram of Colless' indices for randomly generated Yule trees
+  main="Colless' indices for randomly generated Yule trees"
+  xlab="Colless' indices"
+  hist(sapply(rtreeshape(300,tip.number=50,model="yule"),FUN=colless,norm="yule"),freq=FALSE,main=main,xlab=xlab)
+  
+  ## Change the number of tips
+  hist(sapply(rtreeshape(300,tip.number=100,model="yule"),FUN=colless,norm="yule"),freq=FALSE,main=main,xlab=xlab)
+
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{cutreeshape}{Cut objects of class "treeshape"}{cutreeshape}
+\keyword{manip}{cutreeshape}
+\begin{Description}\relax
+Prunes or cuts an object of class \code{"treeshape"} from a specifized internal node, either by specifying a top or bottom direction
+
+This function returns the top part or the bottom part of a given tree.
+The tree is cut from the root to a given node, or from a given node to the tips.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  cutreeshape(tree, node, type)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}.
+\item[\code{node}] An integer representing the node in which the tree will be cut. \code{node} should be in the range 1:(treesize-1).
+\item[\code{type}] A character string equals to either \code{"top"} or \code{"bottom"}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+If the \code{type} specified is "top", the tree is pruned from the height of \code{node}. The resulting tips correspond to the ancestral branches present at the same time as the given node. New tip labels are assigned to the tips.\\
+
+If the \code{type} specified is "bottom", the subtree under \code{node} is returned. The tips are not renamed (they keep their former names) and the specified \code{node} is the root of the new tree.
+\end{Details}
+\begin{Value}
+An object of class \code{"treeshape"}
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.fr}>\\
+Olivier François <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{SeeAlso}\relax
+\code{\LinkA{tipsubtree}{tipsubtree}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Data set provided with the library. Type help(cytochromc) for more infos.
+  data(carnivora.treeshape)  
+  data(hivtree.treeshape)
+
+  ## Examples of "bottom" cutting:
+  bottom.tree=cutreeshape(carnivora.treeshape, 3, "bottom")
+  plot(carnivora.treeshape, bottom.tree)
+  bottom.tree=cutreeshape(carnivora.treeshape, 8, "bottom")
+  plot(carnivora.treeshape, bottom.tree)
+  
+  ## Examples of "top" pruning:
+  top.tree=cutreeshape(hivtree.treeshape, 158, "top")
+  plot(hivtree.treeshape, top.tree)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{dbtreeshape}{Collect trees from a database.}{dbtreeshape}
+\aliasA{pandit}{dbtreeshape}{pandit}
+\aliasA{treebase}{dbtreeshape}{treebase}
+\keyword{manip}{dbtreeshape}
+\keyword{IO}{dbtreeshape}
+\begin{Description}\relax
+\code{dbtreeshape} is a function that calls either \code{pandit} or \code{treebase}.\\
+\code{pandit} connects to the database Pandit and collects a given list of trees from there, converting them into the \code{"treeshape"} class. \\
+\code{treebase} does the same on the TreeBASE database.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  dbtreeshape(db, tree, class="treeshape", type="s", quiet=FALSE, model=NULL, p=0.3)
+  pandit(tree, class="treeshape", type="s", quiet=FALSE, model=NULL, p=0.3)
+  treebase(tree, class="treeshape", quiet=FALSE, model=NULL, p=0.3)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{db}] A character string equals to the name of the database to connect: \code{"pandit"} or \code{"treebase"}.
+\item[\code{tree}] ID vector or list of the trees to be collected from the base.
+\item[\code{class}] The class of the returned trees: must be one of \code{"treeshape"} (default) or \code{"phylo"}.
+\item[\code{type}] The type of the tree: a \code{character} equals to either "s" or "f" (seed or full). This option is only used for the Pandit database.
+\item[\code{quiet}] A \code{logical} value. If \code{TRUE}, nothing will be printed on screen. If \code{FALSE}, lines will be printed to indicate informations about the gathered trees.
+\item[\code{model}] Argument to be passed to \code{as.treshape.phylo}.
+\item[\code{p}] Argument to be passed to \code{as.treshape.phylo}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+The aim of those functions is to provide a simplified method to retrieve trees and to put them into the \code{"treeshape"} format, in order to be able to apply the methods \code{apTreeshape} provides. \\
+These functions connect to databases and retrieve trees from their reference number in the database. There is currently no option to retrieve trees from their names. See references for more details about the Pandit and TreeBASE databases and the description of their data. \\
+These functions may simulate trees with polytomies (see \code{as.treeshape} for more details about the polytomy resolution)
+\end{Details}
+\begin{Value}
+An object of class \code{"treeshape"} or class \code{"phylo"} if only one tree is requested, a list of trees otherwise.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.f}>\\
+Olivier François <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+\url{http://www.ebi.ac.uk/goldman-srv/pandit/} for more details about the Pandit database.
+
+\url{http://www.treebase.org/treebase/} for informations about the TreeBASE database.
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{as.treeshape}{as.treeshape}} for more details about the convertion of non-binary trees.
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Sackin's index of a tree within TreeBASE.
+  sackin(treebase(tree=715))
+
+  ## Colless' index of a tree within Pandit
+  colless(pandit(tree=1))
+  
+  ## Collects a tree without printings: 
+  plot(pandit(709, quiet=TRUE))
+
+  ## Collects a list of trees :
+  trees=pandit(1:5)
+  summary(trees[[2]])
+  
+  ## Collects a non-binary tree
+  phy=treebase(741, class="phylo")
+  plot(phy)
+  tree=treebase(741, class="treeshape")
+  tree=treebase(741, class="treeshape", model="yule")
+  plot(tree)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{dbtreeshape}{Collect trees from a database.}{dbtreeshape}
+\aliasA{pandit}{dbtreeshape}{pandit}
+\aliasA{treebase}{dbtreeshape}{treebase}
+\keyword{manip}{dbtreeshape}
+\keyword{IO}{dbtreeshape}
+\begin{Description}\relax
+\code{dbtreeshape} is a function that calls either \code{pandit} or \code{treebase}.\\
+\code{pandit} connects to the database Pandit and collects a given list of trees from there, converting them into the \code{"treeshape"} class. \\
+\code{treebase} does the same on the TreeBASE database.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  dbtreeshape(db, tree, class="treeshape", type="s", quiet=FALSE, model=NULL, p=0.3)
+  pandit(tree, class="treeshape", type="s", quiet=FALSE, model=NULL, p=0.3)
+  treebase(tree, class="treeshape", quiet=FALSE, model=NULL, p=0.3)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{db}] A character string equals to the name of the database to connect: \code{"pandit"} or \code{"treebase"}.
+\item[\code{tree}] ID vector or list of the trees to be collected from the base.
+\item[\code{class}] The class of the returned trees: must be one of \code{"treeshape"} (default) or \code{"phylo"}.
+\item[\code{type}] The type of the tree: a \code{character} equals to either "s" or "f" (seed or full). This option is only used for the Pandit database.
+\item[\code{quiet}] A \code{logical} value. If \code{TRUE}, nothing will be printed on screen. If \code{FALSE}, lines will be printed to indicate informations about the gathered trees.
+\item[\code{model}] Argument to be passed to \code{as.treshape.phylo}.
+\item[\code{p}] Argument to be passed to \code{as.treshape.phylo}.
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+The aim of those functions is to provide a simplified method to retrieve trees and to put them into the \code{"treeshape"} format, in order to be able to apply the methods \code{apTreeshape} provides. \\
+These functions connect to databases and retrieve trees from their reference number in the database. There is currently no option to retrieve trees from their names. See references for more details about the Pandit and TreeBASE databases and the description of their data. \\
+These functions may simulate trees with polytomies (see \code{as.treeshape} for more details about the polytomy resolution)
+\end{Details}
+\begin{Value}
+An object of class \code{"treeshape"} or class \code{"phylo"} if only one tree is requested, a list of trees otherwise.
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \\
+Eric Durand <\email{eric.durand@imag.f}>\\
+Olivier François <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+\url{http://www.ebi.ac.uk/goldman-srv/pandit/} for more details about the Pandit database. \\
+\url{http://www.treebase.org/treebase/} for informations about the TreeBASE database. \\
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{as.treeshape}{as.treeshape}} for more details about the convertion of non-binary trees.
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Sackin's index of a tree within TreeBASE.
+  sackin(treebase(tree=715))
+
+  ## Colless' index of a tree within Pandit
+  colless(pandit(tree=1))
+  
+  ## Collects a tree without printings: 
+  plot(pandit(709, quiet=TRUE))
+
+  ## Collects a list of trees :
+  trees=pandit(1:5)
+  summary(trees[[2]])
+  
+  ## Collects a non-binary tree
+  phy=treebase(741, class="phylo")
+  plot(phy)
+  tree=treebase(741, class="treeshape")
+  tree=treebase(741, class="treeshape", model="yule")
+  plot(tree)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{hivtree.treeshape}{Phylogenetic Tree of 193 HIV-1 Sequences}{hivtree.treeshape}
+\keyword{datasets}{hivtree.treeshape}
+\begin{Description}\relax
+This data set describes an estimated clock-like phylogeny of 193 HIV-1
+group M sequences sampled in the Democratic Republic of Congo. This data is the conversion of the data from the APE package into the class \code{"treeshape"}.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  data(hivtree.treeshape)
+\end{verbatim}
+\end{Usage}
+\begin{Format}\relax
+\code{hivtree.treeshape} is an object of class \code{"treeshape"}.
+\end{Format}
+\begin{Source}\relax
+This is a data example from Strimmer and Pybus (2001).
+\end{Source}
+\begin{References}\relax
+Strimmer, K. and Pybus, O. G. (2001) Exploring the demographic history of DNA sequences using the generalized skyline plot. _Molecular Biology and Evolution_, *18*, 2298-2305.
+\end{References}
+\begin{Examples}
+\begin{ExampleCode}
+
+  data("hivtree.treeshape") 
+  summary(hivtree.treeshape)
+  plot(hivtree.treeshape)
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{index.test}{Perform a test on the Yule or PDA hypothesis based on the Colless or the Sackin statistic}{index.test}
+\aliasA{colless.test}{index.test}{colless.test}
+\aliasA{sackin.test}{index.test}{sackin.test}
+\keyword{htest}{index.test}
+\begin{Description}\relax
+\code{colless.test} performs a test based on the Colless' index on tree data for the Yule or PDA model hypothesis. \\
+\code{sackin.test} does the same with the Sackin's index. \\
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  colless.test(tree, model = "yule", alternative = "less", n.mc = 500)
+  sackin.test(tree, model = "yule", alternative = "less", n.mc = 500)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}.  
+\item[\code{model}] The null hypothesis of the test. It must be equal to one of the two character strings \code{"yule"} (default) or \code{"pda"}. 
+\item[\code{alternative}] A character string specifying the alternative hypothesis of the test. Must be one of \code{"less"} (default) or \code{"greater"}. 
+\item[\code{n.mc}] An integer representing the number of random trees to be generated and required to estimate a p-value for the test from a Monte Carlo method. 
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+A test on tree data that rejects either the Yule or the PDA models.
+This test is based on a Monte Carlo estimate of the p-value. Replicates are generated under the Yule or PDA models, and their Colless' (Sackin's) indices are computed. The empirical distribution function of these statistics is then computed thanks to the "ecdf" R function. The p-value is then deduced from its quantiles. The less balanced the tree is and the larger its Colless's (Sackin's) index. The alternative "less" should be used to test whether the tree is more balanced (less unbalanced) than predicted by the null model. The alternative "greater" should be used to test whether the tree is more unbalanced than predicted by the null model. The computation of the p-value may not be instantaneous depending on the number of replicates \code{n.mc} used during the MC simulation and the size of the trees.
+\end{Details}
+\begin{Value}
+\begin{ldescription}
+\item[\code{model}] the chosen model for the null hypothesis.
+\item[\code{statistic}] the test statistic.
+\item[\code{p.value}] the p-value of the test.
+\item[\code{alternative}] the alternative hypothesis of the test.
+\end{ldescription}
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr }>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Mooers, A. O., Heard, S. B. (Mar., 1997) Inferring Evolutionnary Process from Phylogenetic Tree Shape. _The Quarterly Review of Biology_, *72*, 31-54.
+
+Blum, M., Francois, O. and Janson, S. The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance, <\url{http://www-timc.imag.fr/Olivier.Francois/bfj.pdf}>.
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{subtree.test}{subtree.test}}\\
+\code{\LinkA{colless}{colless}}\\
+\code{\LinkA{sackin}{sackin}}\\
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Test on a randomly generated Yule tree with 30 tips
+  a<-rtreeshape(1,30,model="yule")
+  
+  ## Is it more balanced than a Yule tree ?
+  colless.test(a,alternative="less",model="yule")
+  ## Is it less balanced than a PDA tree ?
+  colless.test(a,model="pda",alternative="greater")
+ 
+  ## Test on the phylogenetic tree hiv.treeshape: is it more balanced than predicted by the Yule model?
+  data(hivtree.treeshape)
+  ## The tree looks compatible with the null hypothesis
+  colless.test(hivtree.treeshape, alternative="greater", model="yule")
+ 
+  ## What happen when we look at the top the tree?
+  colless.test(cutreeshape(hivtree.treeshape, 160, "top"), alternative="greater", model="yule")
+  colless.test(cutreeshape(hivtree.treeshape, 160, "top"), alternative="greater", model="pda")
+
+  ## Test with the Sackin's index: is the HIV tree less balanced than predicted by the PDA model?
+  sackin.test(hivtree.treeshape,alternative="greater",model="pda") ##the p.value equals to 1...
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{index.test}{Perform a test on the Yule or PDA hypothesis based on the Colless or the Sackin statistic}{index.test}
+\aliasA{colless.test}{index.test}{colless.test}
+\aliasA{sackin.test}{index.test}{sackin.test}
+\keyword{htest}{index.test}
+\begin{Description}\relax
+\code{colless.test} performs a test based on the Colless' index on tree data for the Yule or PDA model hypothesis. \\
+\code{sackin.test} does the same with the Sackin's index. \\
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  colless.test(tree, model = "yule", alternative = "less", n.mc = 500)
+  sackin.test(tree, model = "yule", alternative = "less", n.mc = 500)
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"}.  
+\item[\code{model}] The null hypothesis of the test. It must be equal to one of the two character strings \code{"yule"} (default) or \code{"pda"}. 
+\item[\code{alternative}] A character string specifying the alternative hypothesis of the test. Must be one of \code{"less"} (default) or \code{"greater"}. 
+\item[\code{n.mc}] An integer representing the number of random trees to be generated and required to estimate a p-value for the test from a Monte Carlo method. 
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+A test on tree data that rejects either the Yule or the PDA models.
+This test is based on a Monte Carlo estimate of the p-value. Replicates are generated under the Yule or PDA models, and their Colless' (Sackin's) indices are computed. The empirical distribution function of these statistics is then computed thanks to the "ecdf" R function. The p-value is then deduced from its quantiles. The less balanced the tree is and the larger its Colless's (Sackin's) index. The alternative "less" should be used to test whether the tree is more balanced (less unbalanced) than predicted by the null model. The alternative "greater" should be used to test whether the tree is more unbalanced than predicted by the null model. The computation of the p-value may not be instantaneous depending on the number of replicates \code{n.mc} used during the MC simulation and the size of the trees.
+\end{Details}
+\begin{Value}
+\begin{ldescription}
+\item[\code{model}] the chosen model for the null hypothesis.
+\item[\code{statistic}] the test statistic.
+\item[\code{p.value}] the p-value of the test.
+\item[\code{alternative}] the alternative hypothesis of the test.
+\end{ldescription}
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}>\\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr }>\\
+Olivier Francois <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Mooers, A. O., Heard, S. B. (Mar., 1997) Inferring Evolutionnary Process from Phylogenetic Tree Shape. _The Quarterly Review of Biology_, *72*, 31-54.
+
+Blum, M., Francois, O. and Janson, S. The mean, variance and limiting distribution of two statistics sensitive to phylogenetic tree balance, <\url{http://www-timc.imag.fr/Olivier.Francois/bfj.pdf}>
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{subtree.test}{subtree.test}}\\
+\code{\LinkA{colless}{colless}}\\
+\code{\LinkA{sackin}{sackin}}\\
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Test on a randomly generated Yule tree with 30 tips
+  a<-rtreeshape(1,30,model="yule")
+  
+  ## Is it more balanced than a Yule tree ?
+  colless.test(a,alternative="less",model="yule")
+  ## Is it less balanced than a PDA tree ?
+  colless.test(a,model="pda",alternative="greater")
+ 
+  ## Test on the phylogenetic tree hiv.treeshape: is it more balanced than predicted by the Yule model?
+  data(hivtree.treeshape)
+  ## The tree looks compatible with the null hypothesis
+  colless.test(hivtree.treeshape, alternative="greater", model="yule")
+ 
+  ## What happen when we look at the top the tree?
+  colless.test(cutreeshape(hivtree.treeshape, 160, "top"), alternative="greater", model="yule")
+  colless.test(cutreeshape(hivtree.treeshape, 160, "top"), alternative="greater", model="pda")
+
+  ## Test with the Sackin's index: is the HIV tree less balanced than predicted by the PDA model?
+  sackin.test(hivtree.treeshape,alternative="greater",model="pda") ##the p.value equals to 1...
+\end{ExampleCode}
+\end{Examples}
+
+\HeaderA{likelihood.test}{Test the Yule vs PDA null hypothesis on tree data.}{likelihood.test}
+\keyword{htest}{likelihood.test}
+\begin{Description}\relax
+\code{likelihood.test} uses the \code{shape.statistic} to perform a test on tree data for the Yule vs PDA model hypothesis.  The test is based on a Gaussian approximation of the ratio of likelihood.
+\end{Description}
+\begin{Usage}
+\begin{verbatim}
+  likelihood.test(tree, model = "yule", alternative="two.sided")
+\end{verbatim}
+\end{Usage}
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{tree}] An object of class \code{"treeshape"} on which the test is performed. 
+\item[\code{model}] The null hypothesis of the test. It must be equal to one of the two character strings \code{"yule"} or \code{"pda"}. 
+\item[\code{alternative}] A character string specifying the alternative hypothesis of the test. Must be one of \code{"two.sided"} (default), \code{"less"} or \code{"greater"}. 
+\end{ldescription}
+\end{Arguments}
+\begin{Details}\relax
+A test on tree data that rejects either the Yule of PDA model. The test is based on the ratio of the likelihood of the PDA model to the likelihood of the Yule model (shape.statistic). The less balanced the tree is and the larger its shape statistic. The alternative "less" should be used to test whether the tree is less unbalanced than predicted by the null model. The alternative "greater" should be used to test whether the tree is more unbalanced than predicted by the null model. \\
+
+Under the Yule model, the test statistic has approximate Gaussian distribution of mean = 1.204*n-log(n-1)-2 and variance = 0.168*n-0.710, where n is the number of tips of the tree. The Gaussian approximation is accurate for n greater than 20. \\
+
+Under the PDA model, the test statistic has approximate Gaussian distribution of mean ~  2.03*n-3.545*sqrt(n-1) and variance ~ 2.45*(n-1)*log(n-1), where n is the number of tips of the tree. The Gaussian approximation is accurate for very large n (n greater than 10000(?)) . For low values, the test uses tabulated empirical values of variances estimated from Monte Carlo simulations. The test uses the formula: variance ~ 1.570*n*log(n)-5.674*n+3.602*sqrt(n)+14.915 \\
+
+The values of the means and variances have been obtained from an analogy with binary search tree models in computer science. \\
+\end{Details}
+\begin{Value}
+\code{likelihood.test} returns a list which includes:
+\begin{ldescription}
+\item[\code{model}] the null model used by the test
+\item[\code{statistic}] the test statistic
+\item[\code{p.value}] the p.value of the test
+\item[\code{alternative}] the alternative hypothesis of the test
+\end{ldescription}
+\end{Value}
+\begin{Author}\relax
+Michael Blum <\email{michael.blum@imag.fr}> \\
+Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\\
+Eric Durand <\email{eric.durand@imag.fr}> \\
+Olivier François <\email{olivier.francois@imag.fr}>
+\end{Author}
+\begin{References}\relax
+Fill, J. A. (1996), On the Distribution of Binary Search Trees under the Random Permutation Model. _Random Structures and Algorithms_, *8*, 1-25.\\
+\end{References}
+\begin{SeeAlso}\relax
+\code{\LinkA{shape.statistic}{shape.statistic}}
+\end{SeeAlso}
+\begin{Examples}
+\begin{ExampleCode}
+
+  ## Generate a Yule tree with 150 tips. Is it likely to be fitting the PDA model?
+  likelihood.test(ryule(150),model="pda") 
+  ## The p.value is close from 0. We reject the PDA hypothesis.
+
+  ## Test on the Carnivora tree: is it likely to be fitting the Yule model?
+  data(carnivora.treeshape)
+  likelihood.test(carnivora.treeshape) 
+  ## The p.value is high, so it's impossible to reject the Yule hypothesis.
+\end{ExampleCode}
+\end{Examples}
+
