@@ -9,6 +9,11 @@
 \alias{treebalance}
 \alias{treebase}
 \alias{read.tree2}
+\alias{logratio}
+\alias{Delta}
+\alias{ancestor}
+\alias{smaller.clade.spectrum2}
+
 
 
 \title{Internal apTreeshape Functions}

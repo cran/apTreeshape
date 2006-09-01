@@ -7,7 +7,7 @@ function(nodes, names){
 	}
 #names est nu vecteur a n elements.
 	if (missing(names)) {
-		names=as.character(1:(nrow(nodes)+1))
+		names=paste("tip",as.character(1:(nrow(nodes)+1)))
 	}
 	
 	if (length(names)!=nrow(nodes)+1){
