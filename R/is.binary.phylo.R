@@ -6,22 +6,14 @@ function(phy) {
 	}
 		
 	x<-0
-	tmp<-rep(x, nrow(phy$edge))
-	for (node in 1:nrow (phy$edge)) {
-		if (as.integer(phy$edge[node,1])<0) {
-			tmp[-as.integer(phy$edge[node,1])]<-tmp[-as.integer(phy$edge[node,1])]+1
-		}
+	tmp<-rep(x, nrow(phy$edge)+1)
+	for (node in 1:(nrow(phy$edge))) {
+		tmp[phy$edge[node,1]]<-tmp[phy$edge[node,1]]+1
 	}
-#	res<-TRUE
-#	for (node in 1:nrow (phy$edge)) {
-#		res<-res & (tmp[node]==2 | tmp[node]==0 )
-#	}	
-	
-#	res
 
 	res1<-seq(1)
 	res2<-seq(1)
-	for (node in 1:nrow (phy$edge)) {
+	for (node in 1:(nrow(phy$edge)+1)) {
 		if (!(tmp[node]==2 | tmp[node]==0)) {
 			res1<-c(res1, node)
 			res2<-c(res2, tmp[node])

@@ -55,7 +55,8 @@ set.height <- function(edge) {
 	
 	res=list(edge=edge, edge.length=edge.length, tip.label=tree$names)
 	class(res)='phylo'
-	res
+	res=old2new.phylo(res)
+        res
 
 }
 

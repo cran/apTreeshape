@@ -5,7 +5,7 @@ function(nodes, names){
 	if (!(is.matrix(nodes)) || (ncol(nodes) != 2)) {
 		stop("invalid argument")
 	}
-#names est nu vecteur a n elements.
+#names est un vecteur a n elements.
 	if (missing(names)) {
 		names=paste("tip",as.character(1:(nrow(nodes)+1)))
 	}
