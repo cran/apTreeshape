@@ -8,7 +8,7 @@ Plot method for objects of class \code{"treeshape"}.
 }
 
 \usage{
-plot.treeshape(x, y, ...)
+\method{plot}{treeshape}(x, y, \dots)
 }
 
 \arguments{

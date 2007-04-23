@@ -1,8 +1,16 @@
+Changes in apTreeshape 1.4.0
+============================
 
+improvements
+------------
+  o New function added: maxlik.betasplit
+
+bug fixes
+---------
+  o Minor bugs have been fixed. Improved compatibility with ape
 
 Changes in apTreeshape 1.1.0
 ============================
-
 
 improvements
 ------------

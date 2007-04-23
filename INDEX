@@ -13,6 +13,8 @@ cytochromc              Phylogenetic trees from the Pandit database
 dbtrees                 Download trees from internet databases.
 hivtree.treeshape       Phylogenetic Tree of 193 HIV-1 Sequences
 likelihood.test         Test the Yule model vs PDA (uniform) model.
+maxlik.betasplit        Maximum likelihood of beta in the
+                        Beta-splitting model
 plot.treeshape          Plot phylogenetic treeshapes.
 primates                Phylogenetic trees from the TreeBASE database
 rtreeshape              Generate a list of random binary trees
@@ -20,6 +22,8 @@ rtreeshape              Generate a list of random binary trees
 sackin                  Compute the Sackin's index of a tree
 shape.statistic         Computes the log of the likelihood ratio
                         (yule/pda)
+shift.test              Testing diversification rate variation in
+                        phylogenetic trees
 smaller.clade.spectrum
                         Compute the smaller clade spectrum of a tree.
 spectrum.treeshape      Compute the spectrum of a tree
