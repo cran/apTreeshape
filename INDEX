@@ -10,7 +10,6 @@ colless.test            Perform a test on the Yule or PDA hypothesis
                         based on the Colless or the Sackin statistic
 cutreeshape             Cut objects of class "treeshape"
 cytochromc              Phylogenetic trees from the Pandit database
-dbtrees                 Download trees from internet databases.
 hivtree.treeshape       Phylogenetic Tree of 193 HIV-1 Sequences
 likelihood.test         Test the Yule model vs PDA (uniform) model.
 maxlik.betasplit        Maximum likelihood of beta in the

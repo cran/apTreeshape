@@ -87,12 +87,6 @@ maxlik.betasplit<-function(phylo,up=10,remove.outgroup=FALSE,confidence.interval
 		low.conf<-(1-prob.conf.inter)/2
 		conf_interval<-quantile(thebeta,c(low.conf,up.conf))
 	}
-	if (confidence.interval=="chi_square")
-	{
-		x <- list(label=c("beta"),est=c(res$maximum),low=c(-2),upp=c(up))
-		conf_interval<-plkhci(x,nlogf=function(x){-logvrais.aldous.phylo(x,phylo,remove.outgroup=FALSE,prbootstrap=FALSE)},label="beta",prob=prob.conf.inter)
-		#conf_interval<-res$par+qnorm(c(.025,.975))*sqrt(-res$hessian)
-	}
 	if (confidence.interval=="none")
 	{
 		conf_interval<-NULL

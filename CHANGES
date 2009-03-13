@@ -1,3 +1,10 @@
+Changes in apTreeshape 1.4.2
+============================
+
+bug fixes
+---------
+  o Function dbtrees has been removed.
+
 Changes in apTreeshape 1.4.0
 ============================
 

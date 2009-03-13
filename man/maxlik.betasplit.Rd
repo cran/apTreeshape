@@ -35,9 +35,6 @@ By default, \code{confidence.interval}='"none"' and no confidence interval is co
 When \code{confidence.interval}=\code{bootstrap_param}, parametric bootstraping is performed to compute
 a confidence interval. Shall be used when the number of tips is small (<50).
 
-When \code{confidence.interval}=\code{chi_square}, a chi-square approximatiom is used for
-computing a confidence interval. Shall be used when the number of tips is large (>50).
-
 }
 
 \value{
@@ -60,10 +57,8 @@ Blum, M.G.B. and Francois, O. Which random processes describe the Tree of Life? 
 }
 \examples{
 library(ape)
-library(Bhat)
 tree.pda<-rpda(50)
 maxlik.betasplit(tree.pda,confidence.interval="none")
-maxlik.betasplit(tree.pda,confidence.interval="chi_square")
 maxlik.betasplit(tree.pda,confidence.interval="bootstrap_param")
 }
 

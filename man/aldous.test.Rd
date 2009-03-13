@@ -43,17 +43,10 @@ Olivier Francois \email{olivier.francois@imag.fr}
 \examples{
 library(quantreg)
 aldous.test(rbiased(2000, p=.5))
-if(!inherits(try(open(url("http://www.google.com")), silent = TRUE), "try-error")) {
- 	
-        t <- as.treeshape(dbtrees(db="pandit", tree=61, quiet=TRUE, class="phylo"),model="biased")
- 	aldous.test(t, xmin=10)
- 	
-        t <-as.treeshape(dbtrees(db="pandit", tree=120, quiet=TRUE, class="phylo"),model="yule")
- 	aldous.test(t)
- 	
- 	## Test with a huge balanced tree:
- 	aldous.test(rbiased(2000, p=.5))
-}
+
+## Test with a huge balanced tree:
+aldous.test(rbiased(2000, p=.5))
+
 
   
 }

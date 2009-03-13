@@ -36,7 +36,6 @@ Olivier Francois <\email{olivier.francois@imag.fr}>
 
 \seealso{ 
 \code{\link{as.phylo.treeshape}}\cr
-\code{\link{dbtrees}} for examples about polytomy resolutions.
 }
 
 \examples{
