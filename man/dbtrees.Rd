@@ -46,7 +46,7 @@ An object of class \code{"treeshape"} or class \code{"phylo"} if only one tree i
 Michael Blum <\email{michael.blum@imag.fr}>\cr
 Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}> \cr
 Eric Durand <\email{eric.durand@imag.f}>\cr
-Olivier François <\email{olivier.francois@imag.fr}>
+Olivier Franï¿½ois <\email{olivier.francois@imag.fr}>
 }
 
 \examples{
@@ -56,17 +56,20 @@ if(!inherits(try(open(url("http://www.google.com")), silent = TRUE),
 sackin(dbtrees(db="treebase", tree=715, class="treeshape"))
 
 ## Colless' index of a tree within Pandit
-colless(dbtrees(db="pandit", tree=1, class="treeshape"))
+t <- as.treeshape(dbtrees(db="pandit", tree=1, class="phylo"),model="yule")
+colless(t)
   
 ## Collects a tree without printings: 
-plot(dbtrees(db="pandit", tree=709, class="treeshape", quiet=TRUE))
+t <- as.treeshape(dbtrees(db="pandit", tree=709, class="phylo"),model="yule")
+plot(t)
 
 ## Collects a list of trees :
-trees=dbtrees(db="pandit", tree=1:5, class="treeshape")
+
+trees=trees <-sapply(dbtrees(db="pandit", tree=1:5, class="phylo"),FUN=function(x){as.treeshape(x,model="yule")}) 
 summary(trees[[2]])
   
 ## Collects a non-binary tree
-phy=dbtrees(db="pandit", tree=1, class="phylo")
+phy=as.treeshape(dbtrees(db="pandit", tree=1, class="phylo"),model="yule")
 plot(phy)
 tree=dbtrees(db="treebase", tree=741, class="treeshape")
 tree=dbtrees(db="treebase", tree=741, class="treeshape", model="yule")

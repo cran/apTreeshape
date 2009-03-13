@@ -42,16 +42,17 @@ Olivier Francois \email{olivier.francois@imag.fr}
 
 \examples{
 library(quantreg)
+aldous.test(rbiased(2000, p=.5))
 if(!inherits(try(open(url("http://www.google.com")), silent = TRUE), "try-error")) {
-	## The Yule model is fitting to the data better than the PDA
-	aldous.test(dbtrees(db="pandit", tree=61, quiet=TRUE, class="treeshape"), xmin=10)
-	
-	## For this tree, the PDA model provides a better fit than the Yule model
-	aldous.test(dbtrees(db="pandit", tree=120, quiet=TRUE, class="treeshape"))
-	
-	## Test with a huge balanced tree:
-	aldous.test(rbiased(2000, p=.5))
-
+ 	
+        t <- as.treeshape(dbtrees(db="pandit", tree=61, quiet=TRUE, class="phylo"),model="biased")
+ 	aldous.test(t, xmin=10)
+ 	
+        t <-as.treeshape(dbtrees(db="pandit", tree=120, quiet=TRUE, class="phylo"),model="yule")
+ 	aldous.test(t)
+ 	
+ 	## Test with a huge balanced tree:
+ 	aldous.test(rbiased(2000, p=.5))
 }
 
   

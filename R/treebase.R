@@ -33,7 +33,6 @@ function (tree, class="phylo", quiet=FALSE, model=NULL, p=0.3) {
 		URL="http://www.phylo.org/treebase/trees/Tree"
 		aux=as.character(tree[i])
 		URL = paste(URL, aux, ".nhx",sep="")
-		
 		text=""
 		
 		err=options()$show.error.messages

@@ -15,7 +15,7 @@ rtreeshape(n, tip.number, p = 0.3, model="", FUN="")
 \item{n}{ The number of trees to generate.}
 \item{tip.number}{ The number of tips of the trees to generate. Can be a vector.}
 \item{p}{ Only used when \code{model="biased"}. It represents the bias factor of the tree to generate.}  
-\item{model}{ A character string equals to \code{"yule"}, \code{"pda"}, code{"aldous"} or \code{"biased"}.}
+\item{model}{ A character string equals to \code{"yule"}, \code{"pda"}, \code{"aldous"} or \code{"biased"}.}
 \item{FUN}{A two variables (\code{n} and \code{i}) function.}
 }
 
@@ -50,7 +50,7 @@ Kirkpatrick, M. and Slatkin, M. (1993) Searching for evolutionary patterns in th
 Michael Blum <\email{michael.blum@imag.fr}>\cr 
 Nicolas Bortolussi <\email{nicolas.bortolussi@imag.fr}>\cr
 Eric Durand <\email{eric.durand@imag.fr}>\cr
-Olivier François <\email{olivier.francois@imag.fr}>
+Olivier Franï¿½ois <\email{olivier.francois@imag.fr}>
 }
 
 \examples{

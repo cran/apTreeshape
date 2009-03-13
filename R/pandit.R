@@ -24,22 +24,21 @@ function (tree, class="phylo", type="s", quiet=FALSE, model=NULL, p=0.3) {
 	
 	number=0
 	res=list()
-#Recuperation des arbres :
+        #Recuperation des arbres :
 	if (!quiet) {cat("Connecting to Pandit...")}
 		
 	
 	for (i in 1:length(tree)) {
-		URL="http://www.sanger.ac.uk/cgi-bin/Pfam/download_hmm.pl?acc=PF"
-		aux=as.character(tree[i])
-		if (nchar(aux)==1){ aux=paste("0000", aux, sep="")}
-		if (nchar(aux)==2){ aux=paste("000", aux, sep="")}
-		if (nchar(aux)==3){ aux=paste("00", aux, sep="")}
-		if (nchar(aux)==4){ aux=paste("0", aux, sep="")}
-		URL = paste(URL, aux, sep="")
-		
-		if (type=="s") { URL = paste(URL,"&tree=tree&type=seed", sep="") }
-		if (type=="e") { URL = paste(URL,"&tree=tree&type=full", sep="") }
-		
+
+                URL="http://pfam.sanger.ac.uk/family/tree/download?alnType="
+                if (type=="s") { URL = paste(URL,"seed&acc=PF", sep="") }
+                if (type=="f") { URL = paste(URL,"full&acc=PF", sep="") }
+                aux=as.character(tree[i])
+                if (nchar(aux)==1){ aux=paste("0000", aux, sep="")}
+                if (nchar(aux)==2){ aux=paste("000", aux, sep="")}
+                if (nchar(aux)==3){ aux=paste("00", aux, sep="")}
+                if (nchar(aux)==4){ aux=paste("0", aux, sep="")}
+                URL = paste(URL, aux, sep="")
 		text=""
 
             err=options()$show.error.messages
