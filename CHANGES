@@ -1,3 +1,13 @@
+Changes in apTreeshape 1.4.4
+============================
+
+bug fixes
+---------
+  o Add .Rd file for data: carnivora.treeshape cytochromc primates rhodopsini
+  o Suppress COPYING file 
+ 
+
+
 Changes in apTreeshape 1.4.3
 ============================
 
