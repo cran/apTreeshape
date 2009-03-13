@@ -5,20 +5,21 @@
 \title{ Maximum likelihood of beta in the Beta-splitting model }
 
 \description{ The function finds the beta value that maximizes the likelihood in the Beta-splitting model. Beta=0 corresponds
-to Yule trees, Beta<0 corresponds to trees more unbalanced than Yule trees and Beta>0 corresponds to trees more balanced than Yule trees. Confidence intervals may also be provided.
+to Yule trees, Beta<0 corresponds to trees more unbalanced than Yule trees and Beta>0 corresponds to trees more balanced than Yule trees. Confidence intervals can also be provided.
 }
 
 \usage{
-maxlik.betasplit(phylo, up = 10, remove.outgroup = FALSE, confidence.interval = "none", prob.conf.inter = 0.95, size.bootstrap = 100)
+maxlik.betasplit(phylo, up = 10, remove.outgroup = FALSE,
+confidence.interval = "none", conf.level = 0.95, size.bootstrap = 100)
 }
 
 
 \arguments{
-  \item{phylo}{An object of class '"treeshape"' or '"phylo"' on which the likelihood is computed.}
+  \item{phylo}{An object of class \code{"treeshape"} or \code{"phylo"} on which the likelihood is computed.}
   \item{up}{ numeric. The Beta value that maximizes the likelihood is searched between -2 and \code{up} }
   \item{remove.outgroup}{ logical. Should one or two outgroups be removed before computing the likelihood }
   \item{confidence.interval}{ The method to be used for computing confidence intervals. See *Details*. }
-  \item{prob.conf.inter}{ numeric. Probability associated with the confidence interval }
+  \item{conf.level}{ numeric. Probability associated with the confidence interval }
   \item{size.bootstrap}{ number. Number of bootsrap replicates }
 }
 \details{
@@ -30,10 +31,13 @@ Beta<0 corresponds to trees more unbalanced than Yule trees, Beta=-3/2 correspon
 
 Beta>0 corresponds to trees more balanced than Yule trees.
 
-By default, \code{confidence.interval}='"none"' and no confidence interval is computed.
+By default, \code{confidence.interval}=\code{"none"} and no confidence interval is computed.
 
-When \code{confidence.interval}=\code{bootstrap_param}, parametric bootstraping is performed to compute
-a confidence interval. Shall be used when the number of tips is small (<50).
+When \code{confidence.interval}=\code{"bootstrap"}, a confidence interval is found with a 
+resampling technique. Shall be used when the number of tips is small (<50).
+
+When \code{confidence.interval}=\code{"profile"}, a confidence interval is found with a 
+profile likelihood technique. Shall be used when the number of tips is large (>50).
 
 }
 
@@ -53,13 +57,13 @@ Blum, M.G.B. and Francois, O. Which random processes describe the Tree of Life? 
 \author{ michael.blum@imag.fr }
 
 \seealso{ 
-\code{\link{sackin}},\code{\link{sackin.test}},\code{\link{colless}},\code{link{colless.test}} 
+\code{\link{sackin}}, \code{\link{sackin.test}}, \code{\link{colless}}, \code{\link{colless.test}} 
 }
 \examples{
-library(ape)
-tree.pda<-rpda(50)
+tree.pda<-rtreeshape(n=1, tip.number=50, model="pda")[[1]]
 maxlik.betasplit(tree.pda,confidence.interval="none")
-maxlik.betasplit(tree.pda,confidence.interval="bootstrap_param")
+maxlik.betasplit(tree.pda,confidence.interval="bootstrap")
+maxlik.betasplit(tree.pda,confidence.interval="profile")
 }
 
 \keyword{htest}

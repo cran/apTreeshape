@@ -1,3 +1,12 @@
+Changes in apTreeshape 1.4.3
+============================
+
+bug fixes
+---------
+  o Minor bug corrections in function maxlik.betasplit.
+
+
+
 Changes in apTreeshape 1.4.2
 ============================
 

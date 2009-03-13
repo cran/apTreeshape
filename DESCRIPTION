@@ -1,6 +1,6 @@
 Package: apTreeshape
 Date: 2009-03-13
-Version: 1.4-2
+Version: 1.4-3
 Title: Analyses of Phylogenetic Treeshape
 Author: Nicolas Bortolussi <nicolas.bortolussi@imag.fr>, Eric Durand
         <eric.durand@berkeley.edu>, Michael Blum
@@ -20,6 +20,6 @@ Description: apTreeshape is mainly dedicated to simulation and analysis
         "phylo" (from 'ape' package) can be converted easily.
 License: GPL (>= 2)
 Encoding: latin1
-Packaged: 2010-03-18 16:26:12 UTC; edurand
+Packaged: 2010-04-22 20:20:35 UTC; edurand
 Repository: CRAN
-Date/Publication: 2010-03-18 19:15:56
+Date/Publication: 2010-04-23 08:25:35
