@@ -1,5 +1,5 @@
 41e47ac177b936af7db0788a709188e6 *CHANGES
-2910252466df6cbd0fe57defa876aad4 *DESCRIPTION
+e365c1f46f908ba0a3cf01f4f6051e18 *DESCRIPTION
 60cb704f23cecfb3baf39f3858d113c7 *NAMESPACE
 20a52a5b48f2b3bcc2083281e47a2ad9 *R/Delta.R
 ba09450ffb10364b48297031f8f8dd6b *R/aldous.test.R
@@ -36,8 +36,6 @@ fe4b25d0b0d851b4465cec89b45b3c10 *R/subtree.test.R
 3634f353fba2a4f4daa273d52dd8f8a8 *R/tipsubtree.R
 8aba438e724de1b24d926567ecbe43bd *R/treebalance.R
 1ec945daf174f5e3cea19045d8e8bfe4 *R/treeshape.R
-d7eab93fd03d414a708f8e3922e9cabb *R/zzz.R
-a0c9d7b15a8fd8bacd4eea3eaad729c4 *apTreeshape-Ex.R
 279af6a37650afa07ff6ddfeddbe1a7c *data/carnivora.treeshape.rda
 65c97bca4738c0ec50e0a80276280814 *data/cytochromc.rda
 2bbd91a5927d1de8728f777a97c17383 *data/hivtree.treeshape.rda
