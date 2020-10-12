@@ -1,10 +1,10 @@
 Package: apTreeshape
 Date: 2018-03-22
-Version: 1.5-0
+Version: 1.5-0.1
 Title: Analyses of Phylogenetic Treeshape
 Author: Nicolas Bortolussi, Michael Blum, Eric Durand, Olivier Francois, Odile Maliet
 Maintainer: Michael Blum <michael.blum@univ-grenoble-alpes.fr>
-Depends: R (>= 2.0.0), ape
+Depends: R (>= 2.10), ape
 Imports: quantreg, cubature, coda, pbapply
 Description: Simulation and analysis
         of phylogenetic tree topologies using statistical indices. It
@@ -21,5 +21,5 @@ License: GPL (>= 2)
 Encoding: latin1
 Repository: CRAN
 NeedsCompilation: no
-Packaged: 2018-04-03 07:58:59 UTC; mblum
-Date/Publication: 2018-04-04 11:26:22 UTC
+Packaged: 2020-10-12 13:57:02 UTC; hornik
+Date/Publication: 2020-10-12 14:12:28 UTC

@@ -46,7 +46,7 @@ maxlik.betasplit<-function (phylo, up = 10, remove.outgroup = FALSE, confidence.
         bal <- bbalance(phylo)
     if (class(phylo) != "phylo" && class(phylo) != "treeshape") {
         print("The phylogeny shall be of class phylo or treeshape")
-        return
+        return()
     }
     if (remove.outgroup) {
         if ((bal[1, 1] <= 2) || ((bal[1, 2] - bal[1, 1]) <= 2))

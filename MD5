@@ -1,5 +1,5 @@
 7dd34e3de50d0cf3489c1a537f48c2d9 *CHANGES
-8805888f905c304d1016a6f8bbf00791 *DESCRIPTION
+2efc0cc71e27b0b0f54ba6524633424e *DESCRIPTION
 aaa2214ee695530fb2da9b65959c474a *NAMESPACE
 20a52a5b48f2b3bcc2083281e47a2ad9 *R/Delta.R
 6e911e1cc03cd272e29ecf7e56f06190 *R/aldous.test.R
@@ -18,7 +18,7 @@ bee72e8b327385afb077a30ebfc9e380 *R/cutreeshape.R
 1f776b1b435ff7cea7a4dbc691f33e35 *R/is.binary.phylo.R
 88736fbee37d172693080676cce9f562 *R/likelihood.test.R
 696078f37015b86b2efe63cda20e28a8 *R/logratio.R
-75d1e0d34c4da0662df744d0d8c00627 *R/maxlik.betasplit.R
+b5f028ec5cabba9000fe56e1dce1162d *R/maxlik.betasplit.R
 2e4d425c08501ca15035f2d479db90bc *R/mcmc_alpha.R
 063ee3f6412c71359a2b0f4ace19d826 *R/mcmc_eta.R
 b55ee4b30cb2a5cff90de72878494b96 *R/plot.treeshape.R
@@ -43,12 +43,12 @@ fe4b25d0b0d851b4465cec89b45b3c10 *R/subtree.test.R
 8aba438e724de1b24d926567ecbe43bd *R/treebalance.R
 1ec945daf174f5e3cea19045d8e8bfe4 *R/treeshape.R
 8079352158cb004288cfb560bd78da69 *README.md
-279af6a37650afa07ff6ddfeddbe1a7c *data/carnivora.treeshape.rda
-65c97bca4738c0ec50e0a80276280814 *data/cytochromc.rda
-2bbd91a5927d1de8728f777a97c17383 *data/hivtree.treeshape.rda
-d8588e29e5538a79e29e7cef9ed7aed2 *data/primates.rda
-8fb23dab767f60db1de5b54773cbc578 *data/rhodopsin.rda
-c4fe64dddaaa54695d3d76a44cbaaed3 *data/universal.treeshape.rda
+c88d1c069ba48c616e5e054f7851e9cf *data/carnivora.treeshape.rda
+33cf387ba65f61ba991bb85ecf2d6913 *data/cytochromc.rda
+2e42d2479bc351d61f7a331262bf3987 *data/hivtree.treeshape.rda
+a2f81327e994740928ea2dad87eb49ad *data/primates.rda
+09b3cdfd3c52b13be79e4a9506419c47 *data/rhodopsin.rda
+65dbb011821e5cd611c24b2821b2fa73 *data/universal.treeshape.rda
 cbadc8cdc85b49a2c3a0679a950372d5 *demo/00Index
 d802ed0e7d1f66be7d660ed2c375078c *demo/apTreeshape.R
 b5792a0bb200cc10dd5c831c9389e346 *man/a_N.Rd
@@ -60,7 +60,7 @@ fb74b20d2967dbf6d0a066c3b050174e *man/as.treeshape.Rd
 cc12da1dca1920612067426760426f06 *man/aux_lik.Rd
 83e9f2349a10552bdd4cf85dc5ac7051 *man/bind.trees.Rd
 7ea81e5714cb5452e5655f2095b627ed *man/build_tree.Rd
-9562eb27c33d3bbd75b5bf5111e4c74c *man/carnivora.treeshape.Rd
+93495128b597e3577caf4ceb561965a3 *man/carnivora.treeshape.Rd
 1d5295a310e38152fee01a16fb60770d *man/change_int.Rd
 2e8e01d4634fdd4a9731ec02ee0dd9bc *man/change_int_eta.Rd
 aaa63af6a89e19d321db3f958ac755e6 *man/cladesize.Rd
